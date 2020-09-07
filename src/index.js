@@ -1,12 +1,14 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import JobOffer from "./Components/JobOffer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <JobOffer />
   </React.StrictMode>,
   document.getElementById('root')
 );

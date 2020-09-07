@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { searchJobFromApi } from '../API/JobOfferBDApi'
 
 class JobOffer extends Component {
 
@@ -8,14 +9,23 @@ class JobOffer extends Component {
         this.state = {
             jobOffer: [],
         }
-        this.searchedJob = "";
+        this.searchedJobId = "";
+    }
+
+    _loadJobOffers() {
+        searchJobFromApi(this.searchedJobId)
+            .then(data => {
+                this.setState({ job: data })
+            })
     }
 
     render() {
         return (
             <React.Fragment>
-                <span>{}</span>
-                <button>Details</button>
+                <h1>Offres d'emploi</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium et inventore, ipsum nemo
+                    perspiciatis voluptas.</p>
+                <div>{this._loadJobOffers()}</div>
             </React.Fragment>
         );
     }
